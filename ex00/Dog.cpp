@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:37:35 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/30 12:11:20 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/04/30 12:28:17 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ Dog::Dog(void) : Animal() {
 
 Dog::Dog(const Dog& other) : Animal(other) {
 	std::cout << "Dog copy" << std::endl;
-	// if (this != &other)
-	// 	*this = other;
 }
 
 Dog::~Dog(void){
