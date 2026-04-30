@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:25:53 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/30 12:35:26 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/04/30 13:27:48 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 static void animalClassTest(void)
 {
@@ -56,15 +58,29 @@ int main(void) {
 	dogClassTest();
 	std::cout << "--Cat Class--" << std::endl;
 	catClassTest();
-
-	std::cout << "___Polymorphisme test__" << std::endl;
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
+	{
+		std::cout << "___Polymorphisme test__" << std::endl;
+		const Animal* meta = new Animal();
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
+		std::cout << j->getType() << " " << std::endl;
+		std::cout << i->getType() << " " << std::endl;
+		i->makeSound();
+		j->makeSound();
+		meta->makeSound();
+		delete(meta);
+		delete(i);
+		delete(j);
+	}
+	{
+		std::cout << "___Wrong test__" << std::endl;
+		WrongAnimal* meta = new WrongAnimal();
+		WrongAnimal* i = new WrongCat();
+		std::cout << i->getType() << std::endl;
+		i->makeWrongSound();
+		meta->makeWrongSound();
+		delete(meta);
+		delete(i);
+	}
 	return (0);
 }
