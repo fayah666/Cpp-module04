@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:18:16 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/30 11:32:06 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/04/30 12:10:22 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 Animal::Animal(void) : _type("Carnivorous") {
 	std::cout << "Animal default constructor" << std::endl;
-}
-
-Animal::Animal(const std::string& type) : _type(type) {
-	std::cout << "Animal type constructor" << std::endl;
 }
 
 Animal::Animal(const Animal& other)
@@ -41,6 +37,11 @@ Animal& Animal::operator=(const Animal& other) {
 const std::string	Animal::getType(void) const {
 	return (this->_type);
 }
-void	Animal::setType(std::string& type) {
+
+void	Animal::setType(const std::string& type) {
 	this->_type = type;
+}
+
+void	Animal::makeSound(void) const {
+	std::cout << "Grrrrrrrrrrrrrr........." << std::endl;
 }

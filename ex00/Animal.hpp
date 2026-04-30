@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:13:10 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/30 11:30:00 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/04/30 12:10:35 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ class Animal {
 		std::string	_type;
 	public :
 		Animal(void);
-		Animal(const std::string& type);
 		Animal(const Animal& animal);
-		~Animal(void);
+		virtual ~Animal();
 		Animal&				operator=(const Animal& other);
 		const std::string	getType(void) const;
-		void				setType(std::string& type);
+		void				setType(const std::string& type);
+		virtual void makeSound(void) const;
 };
 
 #endif //ANIMAL_HPP
