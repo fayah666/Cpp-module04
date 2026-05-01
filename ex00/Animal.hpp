@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:13:10 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/30 12:10:35 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/05/01 11:10:38 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ANIMAL_HPP
 # include <iostream>
 # include <string>
+# include "Brain.hpp"
 
 class Animal {
 	private :
