@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:18:16 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/01 11:43:28 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/05/01 17:34:16 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,6 @@ void	Animal::setType(const std::string& type) {
 
 void	Animal::makeSound(void) const {
 	std::cout << "Grrrrrrrrrrrrrr........." << std::endl;
-}
-
-void	Animal::fillBrain(size_t n, const std::string ideas) {
-	(void)n;
-	(void)ideas;
 }
 
 const	Brain& Animal::getBrain(void) const {

@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:35:45 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/01 11:34:44 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/05/01 16:57:32 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ class Dog : public Animal {
 		Dog(const Dog& animal);
 		~Dog(void);
 		Dog&	operator=(const Dog& other);
-		void makeSound(void) const;
-		void	fillBrain(size_t n, const std::string ideas);
+		void	makeSound(void) const;
 		const	Brain& getBrain(void) const;
 };
 

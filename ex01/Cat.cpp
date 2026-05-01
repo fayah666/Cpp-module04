@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 12:21:56 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/01 11:54:27 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/05/01 17:35:51 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Cat::Cat(void) : Animal() {
 
 Cat::Cat(const Cat& other) : Animal(other) {
 	std::cout << "Cat copy" << std::endl;
+	*this = other;
 }
 
 Cat::~Cat(void) {
@@ -33,17 +34,19 @@ Cat& Cat::operator=(const Cat& other) {
 	std::cout << "Surcharge 'operator='" << std::endl;
 	if (this == &other)
 		return (*this);
-	setType(other.getType());
+	this->setType(other.getType());
+	this->_brain = new Brain();
+	if (this->_brain == NULL)
+	{
+		std::cerr << "Error: Memory allocation failed for Brain" << std::endl;
+		return (*this);
+	}
+	*this->_brain = other.getBrain();
 	return (*this);
 }
 
 void	Cat::makeSound(void) const {
 	std::cout << "Miaaou" << std::endl;
-}
-
-void	Cat::fillBrain(size_t n, const std::string ideas) {
-	for (size_t i = 0; i < n; i++)
-		_brain->setIdeas(i, ideas);
 }
 
 const	Brain& Cat::getBrain(void) const {

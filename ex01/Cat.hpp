@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 12:11:30 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/01 11:52:08 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/05/01 16:30:09 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Cat : public Animal {
 		~Cat(void);
 		Cat&	operator=(const Cat& other);
 		void makeSound(void) const;
-		void	fillBrain(size_t n, const std::string ideas);
+		void	setBrainIdeas(size_t n, const std::string ideas);
 		const	Brain& getBrain(void) const;
 };
 
