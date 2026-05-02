@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:25:53 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/01 18:42:59 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/05/02 07:51:11 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "Cat.hpp"
 #include "Brain.hpp"
 #define N 6
+
 int main(void) {
 	{
 		std::cout << "-----------------------------" << std::endl;
