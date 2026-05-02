@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:13:10 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/01 18:40:51 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/05/02 07:47:16 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Animal {
 		const std::string	getType(void) const;
 		void				setType(const std::string& type);
 		virtual void 		makeSound(void) const = 0;
-		const	Brain& getBrain(void) const;
+		virtual const	Brain& getBrain(void) const = 0;
 };
 
 #endif //ANIMAL_HPP

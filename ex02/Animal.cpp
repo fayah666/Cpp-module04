@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:18:16 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/01 18:43:50 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/05/02 07:49:53 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,4 @@ const std::string	Animal::getType(void) const {
 
 void	Animal::setType(const std::string& type) {
 	this->_type = type;
-}
-
-const	Brain& Animal::getBrain(void) const {
-	static Brain brain;
-	return (brain);
 }
