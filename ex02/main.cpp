@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:25:53 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/02 07:51:11 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/05/22 18:58:54 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int main(void) {
 		delete f;
 	}
 	// {
-	// 	Animal* animal = new Animal(); // This line will cause a compilation error because Animal is an abstract class
+	// 	Animal* animal = new Animal();
 	// 	delete animal;
 	// }
 	return (0);
