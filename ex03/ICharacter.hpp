@@ -14,9 +14,9 @@ class ICharacter
 		~ICharacter();
 
 		ICharacter &		operator=( ICharacter const & rhs );
-
+		std::string const & getName() const;
 	private:
-
+		std::string name;
 };
 
 std::ostream &			operator<<( std::ostream & o, ICharacter const & i );

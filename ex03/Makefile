@@ -6,10 +6,10 @@ RM = rm -f
 
 SRCS = main.cpp \
 		AMateria.cpp \
-		Character.cpp \
-		Cure.cpp \
+		ICharacter.cpp \
 		Ice.cpp \
-		MateriaSource.cpp
+# 		Cure.cpp \
+# 		MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

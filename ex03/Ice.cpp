@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 18:46:30 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/12 18:49:18 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/12 19:09:18 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,9 @@ Ice::Ice()
 	this->type = "ice";
 }
 
-Ice::Ice( const Ice & src )
+Ice::Ice( const Ice & src ) : AMateria(src)
 {
 	std::cout << "Ice copy constructor called" << std::endl;
-	if (this != &src)
-		*this = src;
 }
 
 
@@ -44,20 +42,32 @@ Ice::~Ice()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Ice &				Ice::operator=( Ice const & rhs )
-{
-	//if ( this != &rhs )
-	//{
-		//this->type = rhs.getValue();
-	//}
-	return *this;
-}
+// std::ostream &	operator<<( std::ostream & o, Ice const & i )
+// {
+// 	o << "Ice Type: " << i.getType();
+// 	return o;
+// }
 
+Ice &	Ice::operator=( Ice const & rhs )
+{
+	std::cout << "Ice assignment operator called" << std::endl;
+	if (this != &rhs)
+		this->type = rhs.type;
+	return (*this);
+}
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+AMateria* Ice::clone() const
+{
+	return (new Ice(*this));
+}
 
+void Ice::use(ICharacter& target)
+{
+	std::cout << "* shoots an ice bolt at " << target << " *" << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
