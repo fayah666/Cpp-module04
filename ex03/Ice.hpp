@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/30 11:13:10 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/11 17:17:10 by hfandres         ###   ########.fr       */
+/*   Created: 2026/06/12 18:44:19 by hfandres          #+#    #+#             */
+/*   Updated: 2026/06/12 18:46:13 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
+
 # include <iostream>
 # include <string>
+# include "AMateria.hpp"
+class Ice : public AMateria
+{
 
-class Animal {
-	protected :
-		std::string	_type;
-	public :
-		Animal(void);
-		Animal(const Animal& animal);
-		virtual ~Animal();
-		Animal&				operator=(const Animal& other);
-		const std::string	getType(void) const;
-		void				setType(const std::string& type);
-		virtual void		makeSound(void) const;
+	public:
+
+		Ice();
+		Ice( Ice const & src );
+		~Ice();
+
+		Ice &		operator=( Ice const & rhs );
+		AMateria* clone() const;
+		void use(ICharacter& target);
+
 };
 
-#endif //ANIMAL_HPP
+std::ostream &			operator<<( std::ostream & o, Ice const & i );
+
+#endif /* ************************************************************* ICE_H */
