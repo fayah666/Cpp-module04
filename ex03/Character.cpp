@@ -6,24 +6,40 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 20:26:53 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/12 21:38:37 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/12 22:16:46 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 # include "AMateria.hpp"
-
+# include "Ice.hpp"
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
+namespace Inventory
+{
+	bool isEmpty()
+	{
+		return (true);
+	}
+	bool isFull()
+	{
+		return (false);
+	}
+}
+
 Character::Character() : ICharacter()
 {
+	for (int i = 0; i < INVENTORY_SLOTS; i++)
+		inventory[i] = 0;
 	std::cout << "Character default constructor" << std::endl;
 }
 
 Character::Character(std::string const & name)
 {
+	for (int i = 0; i < INVENTORY_SLOTS; i++)
+		inventory[i] = 0;
 	std::cout << "Character string constructor" << std::endl;
 	this->name = name;
 }
@@ -41,6 +57,11 @@ Character::Character( const Character & src ) : ICharacter(src)
 Character::~Character()
 {
 	std::cout << "Character destroctor" << std::endl;
+	for (int i = 0; i < INVENTORY_SLOTS; i++)
+	{
+		if (inventory[i] != NULL)
+			delete (inventory[i]);
+	}
 }
 
 
@@ -60,6 +81,12 @@ Character &				Character::operator=( Character const & rhs )
 */
 void Character::equip(AMateria* m)
 {
+	for (int i = 0; i < INVENTORY_SLOTS; i++)
+	{
+		if (inventory[i] == NULL)
+			inventory[i] = m->clone();
+		// delete(m);
+	}
 	std::cout << "equip :" << *m << std::endl;
 }
 
@@ -69,7 +96,7 @@ void Character::unequip(int idx)
 }
 void Character::use(int idx, ICharacter& target)
 {
-	std::cout << "use : "<< idx << "/" << target << std::endl;
+	std::cout << "use : "<< (*inventory)[idx] << "/" << target << std::endl;
 }
 
 /*

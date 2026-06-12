@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 21:08:56 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/12 21:30:36 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/12 22:11:44 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ class Character : public ICharacter
 		// bool isEmptySLot(int idx) const;
 
 	private:
-		AMateria* inventory[INVENTORY_SLOTS];
-		bool inventorySlotsFull;
+		AMateria *(inventory)[INVENTORY_SLOTS];
 
 };
 
