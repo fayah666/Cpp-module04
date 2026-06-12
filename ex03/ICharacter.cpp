@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ICharacter.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/12 20:44:13 by hfandres          #+#    #+#             */
+/*   Updated: 2026/06/12 21:11:49 by hfandres         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ICharacter.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ICharacter::ICharacter() : name("Default Name")
+ICharacter::ICharacter()
 {
 	std::cout << "ICharacter default constructor called" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 18:44:19 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/12 19:08:26 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/12 20:46:11 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include "AMateria.hpp"
+
 class Ice : public AMateria
 {
 
@@ -26,6 +27,7 @@ class Ice : public AMateria
 		~Ice();
 
 		Ice &		operator=( Ice const & rhs );
+		std::string const & getType() const;
 		AMateria* clone() const;
 		void use(ICharacter& target);
 

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/12 20:49:08 by hfandres          #+#    #+#             */
+/*   Updated: 2026/06/12 21:29:37 by hfandres         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
 # include <iostream>
 # include <string>
-# include "ICharacter.hpp"
+# include "Character.hpp"
 
 class AMateria
 {
@@ -16,7 +28,7 @@ class AMateria
 		virtual ~AMateria();
 
 		AMateria &		operator=( AMateria const & rhs );
-		std::string const & getType() const;
+		virtual std::string const & getType() const = 0;
 		void setType(std::string const & type);
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
