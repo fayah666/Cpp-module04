@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 18:46:30 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/12 19:09:18 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/12 19:18:35 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,6 @@ Ice::~Ice()
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
-
-// std::ostream &	operator<<( std::ostream & o, Ice const & i )
-// {
-// 	o << "Ice Type: " << i.getType();
-// 	return o;
-// }
 
 Ice &	Ice::operator=( Ice const & rhs )
 {

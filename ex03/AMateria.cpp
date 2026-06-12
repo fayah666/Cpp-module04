@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 18:40:04 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/12 18:43:34 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/12 19:35:48 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ AMateria &	AMateria::operator=( AMateria const & rhs )
 
 std::ostream &	operator<<( std::ostream & o, AMateria const & i )
 {
-	o << "Type = " << i.getType();
+	o << i.getType() << "/" << &i;
 	return (o);
 }
 

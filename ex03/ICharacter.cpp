@@ -40,7 +40,7 @@ ICharacter &				ICharacter::operator=( ICharacter const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, ICharacter const & i )
 {
-	o << "Value = " << i.getName();
+	o << i.getName();
 	return o;
 }
 

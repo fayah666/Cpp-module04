@@ -6,29 +6,47 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 18:59:48 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/12 19:09:10 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/12 19:39:56 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+#include "Cure.hpp"
+#include "ICharacter.hpp"
 
 int main()
 {
-	// Ice ice;
-	// std::cout << "Type: " << ice.getType() << std::endl;
-
-	// Ice* iceClone = dynamic_cast<Ice*>(ice.clone());
-	// if (iceClone)
-	// {
-	// 	std::cout << "Cloned Ice Type: " << iceClone->getType() << std::endl;
-	// 	delete iceClone;
-	// }
-	// else
-	// {
-	// 	std::cerr << "Failed to clone Ice." << std::endl;
-	// }
-	AMateria* am = new Ice();
-	std::cout << *am << std::endl;
-	delete am;
+	{
+		std::cout << "----- TESTING USE -----" << std::endl;
+		ICharacter character;
+		std::cout <<  std::endl;
+		AMateria* am = new Ice();
+		std::cout << "AMateria/adress : " << *am << std::endl;
+		am->use(character);
+		std::cout <<  std::endl;
+		AMateria* am2 = new Cure();
+		std::cout << "AMateria/adress : " << *am2 << std::endl;
+		am2->use(character);
+		std::cout <<  std::endl;
+		delete am;
+		delete am2;
+	}
+	std::cout << "..........................................." << std::endl;
+	{
+		std::cout << "----- TESTING CLONE -----" << std::endl;
+		ICharacter character;
+		std::cout <<  std::endl;
+		AMateria* am = new Ice();
+		std::cout <<  std::endl;
+		AMateria* am2 = am->clone();
+		am2->use(character);
+		std::cout <<  std::endl;
+		std::cout << "AMateria/adress : " << *am << std::endl;
+		std::cout << "AMateria/adress : " << *am2 << std::endl;
+		std::cout <<  std::endl;
+		delete am;
+		delete am2;
+	}
+	std::cout << "..........................................." << std::endl;
 	return 0;
 }
