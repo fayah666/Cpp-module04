@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 21:08:56 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/13 19:31:38 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/13 20:00:09 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ class Character : public ICharacter
         Character();
         Character( Character const & src );
         Character(std::string const & name);
-        virtual ~Character();
+        ~Character();
 
         // Les deux surcharges nécessaires
-        virtual ICharacter & operator=( ICharacter const & rhs );
-        Character &          operator=( Character const & rhs );
+		ICharacter & operator=( ICharacter const & rhs );
+        Character & operator=( Character const & rhs );
 
         std::string const & getName() const;
         void equip(AMateria* m);
@@ -45,7 +45,7 @@ class Character : public ICharacter
         void _copyInventory( ICharacter const & rhs );
 };
 
-std::ostream &			operator<<( std::ostream & o, Character const & i );
+std::ostream &			operator<<( std::ostream & o, ICharacter const & i );
 
 #endif /* ******************************************************* CHARACTER_H */
 

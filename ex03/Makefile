@@ -5,11 +5,11 @@ CXXFLAG = -g -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
 SRCS = main.cpp \
-		AMateria.cpp \
-		ICharacter.cpp \
 		Ice.cpp \
 		Cure.cpp \
-		Character.cpp
+		Character.cpp\
+		AMateria.cpp
+# 		ICharacter.cpp
 # 		MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
