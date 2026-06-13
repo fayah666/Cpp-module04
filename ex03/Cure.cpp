@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 18:46:30 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/12 20:31:29 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/13 17:08:59 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cure::Cure()
+Cure::Cure() : AMateria("cure")
 {
 	std::cout << "Cure default constructor called" << std::endl;
 	this->type = "cure";
@@ -27,6 +27,10 @@ Cure::Cure( const Cure & src ) : AMateria(src)
 	std::cout << "Cure copy constructor called" << std::endl;
 }
 
+Cure::Cure(std::string const & type) : AMateria(type)
+{
+	this->type = "cure";
+}
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -45,8 +49,7 @@ Cure::~Cure()
 Cure &	Cure::operator=( Cure const & rhs )
 {
 	std::cout << "Cure assignment operator called" << std::endl;
-	if (this != &rhs)
-		this->type = rhs.type;
+	AMateria::operator=(rhs);
 	return (*this);
 }
 
@@ -66,9 +69,5 @@ void Cure::use(ICharacter& target)
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-std::string const & Cure::getType() const
-{
-	return (type);
-}
 
 /* ************************************************************************** */

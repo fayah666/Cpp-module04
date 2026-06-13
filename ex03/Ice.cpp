@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 18:46:30 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/12 20:31:51 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/13 17:08:35 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice()
+Ice::Ice() : AMateria("ice")
 {
 	std::cout << "Ice default constructor called" << std::endl;
 	this->type = "ice";
@@ -27,6 +27,10 @@ Ice::Ice( const Ice & src ) : AMateria(src)
 	std::cout << "Ice copy constructor called" << std::endl;
 }
 
+Ice::Ice(std::string const & type) : AMateria(type)
+{
+	this->type = "ice";
+}
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -45,8 +49,7 @@ Ice::~Ice()
 Ice &	Ice::operator=( Ice const & rhs )
 {
 	std::cout << "Ice assignment operator called" << std::endl;
-	if (this != &rhs)
-		this->type = rhs.type;
+	AMateria::operator=(rhs);
 	return (*this);
 }
 
@@ -66,10 +69,5 @@ void Ice::use(ICharacter& target)
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
-std::string const & Ice::getType() const
-{
-	return (type);
-}
 
 /* ************************************************************************** */

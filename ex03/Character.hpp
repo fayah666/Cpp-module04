@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 21:08:56 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/12 22:11:44 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/13 19:31:38 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,27 @@ class AMateria;
 
 class Character : public ICharacter
 {
+    public:
+        Character();
+        Character( Character const & src );
+        Character(std::string const & name);
+        virtual ~Character();
 
-	public:
+        // Les deux surcharges nécessaires
+        virtual ICharacter & operator=( ICharacter const & rhs );
+        Character &          operator=( Character const & rhs );
 
-		Character();
-		Character( Character const & src );
-		Character(std::string const & name);
-		~Character();
+        std::string const & getName() const;
+        void equip(AMateria* m);
+        void unequip(int idx);
+        void use(int idx, ICharacter& target);
+        AMateria* getMateria(int idx) const;
 
-		Character &		operator=( Character const & rhs );
-		std::string const & getName() const;
-		void equip(AMateria* m);
-		void unequip(int idx);
-		void use(int idx, ICharacter& target);
-		// bool isEmptySLot(int idx) const;
+    private:
+        AMateria *inventory[INVENTORY_SLOTS];
 
-	private:
-		AMateria *(inventory)[INVENTORY_SLOTS];
-
+        // Méthode utilitaire privée pour centraliser la copie profonde
+        void _copyInventory( ICharacter const & rhs );
 };
 
 std::ostream &			operator<<( std::ostream & o, Character const & i );

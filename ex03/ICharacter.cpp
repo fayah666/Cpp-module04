@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 20:44:13 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/12 21:11:49 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/13 19:19:08 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ICharacter::ICharacter()
-{
-	std::cout << "ICharacter default constructor called" << std::endl;
-}
+// ICharacter::ICharacter()
+// {
+// 	std::cout << "ICharacter default constructor called" << std::endl;
+// }
 
-ICharacter::ICharacter( const ICharacter & src )
-{
-	std::cout << "ICharacter copy constructor called" << std::endl;
-	if (this != &src)
-		*this = src;
-}
+// ICharacter::ICharacter( const ICharacter & src )
+// {
+// 	std::cout << "ICharacter copy constructor called" << std::endl;
+// 	if (this != &src)
+// 		*this = src;
+// }
 
 
 /*
@@ -43,12 +43,11 @@ ICharacter::~ICharacter()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ICharacter &				ICharacter::operator=( ICharacter const & rhs )
-{
-	if ( this != &rhs )
-		this->name = rhs.getName();
-	return (*this);
-}
+// ICharacter &				ICharacter::operator=( ICharacter const & rhs )
+// {
+// 	(void)rhs;
+// 	return (*this);
+// }
 
 std::ostream &			operator<<( std::ostream & o, ICharacter const & i )
 {

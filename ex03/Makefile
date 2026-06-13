@@ -1,6 +1,6 @@
 CXX = c++
 
-CXXFLAG = -Wall -Wextra -Werror -std=c++98
+CXXFLAG = -g -Wall -Wextra -Werror -std=c++98
 
 RM = rm -f
 

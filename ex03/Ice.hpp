@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 18:44:19 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/12 20:46:11 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/13 17:06:48 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ class Ice : public AMateria
 
 		Ice();
 		Ice( Ice const & src );
+		Ice(std::string const & type);
 		~Ice();
 
 		Ice &		operator=( Ice const & rhs );
-		std::string const & getType() const;
 		AMateria* clone() const;
 		void use(ICharacter& target);
 
