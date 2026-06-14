@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 18:44:19 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/13 17:04:57 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/14 00:00:00 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class Cure : public AMateria
 
 		Cure();
 		Cure( Cure const & src );
-		Cure(std::string const & type);
 		~Cure();
 
 		Cure &		operator=( Cure const & rhs );

@@ -27,14 +27,14 @@ WrongAnimal::~WrongAnimal(void) {
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) {
-	std::cout << "Surcharge 'operator='" << std::endl;
+	std::cout << "WrongAnimal assignment operator" << std::endl;
 	if (this == &other)
 		return (*this);
-	this->_type = other._type;
+	this->_type = other.getType();
 	return (*this);
 }
 
-void	WrongAnimal::makeWrongSound(void) {
+void	WrongAnimal::makeWrongSound(void) const {
 	std::cout << "Grrrrrrrrr....ouuufps" <<  std::endl;
 }
 

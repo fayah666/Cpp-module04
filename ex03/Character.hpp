@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 21:08:56 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/13 20:00:09 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/14 00:00:00 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <iostream>
 # include <string>
 # include "ICharacter.hpp"
-# define INVENTORY_SLOTS 4
 
 class AMateria;
 
@@ -28,8 +27,6 @@ class Character : public ICharacter
         Character(std::string const & name);
         ~Character();
 
-        // Les deux surcharges nécessaires
-		ICharacter & operator=( ICharacter const & rhs );
         Character & operator=( Character const & rhs );
 
         std::string const & getName() const;
@@ -39,18 +36,10 @@ class Character : public ICharacter
         AMateria* getMateria(int idx) const;
 
     private:
-        AMateria *inventory[INVENTORY_SLOTS];
-
-        // Méthode utilitaire privée pour centraliser la copie profonde
-        void _copyInventory( ICharacter const & rhs );
+        AMateria *inventory[4];
+        std::string name;
 };
 
 std::ostream &			operator<<( std::ostream & o, ICharacter const & i );
 
 #endif /* ******************************************************* CHARACTER_H */
-
-/*
-
-[0][0][0][0]
-
-*/

@@ -13,25 +13,25 @@
 #include "Brain.hpp"
 
 Brain::Brain(void) {
-	std::cout << "Brain Default constructor" << std::endl;
+	std::cout << "Brain default constructor" << std::endl;
 }
 
 Brain::Brain(const Brain& other) {
-	std::cout << "Brain Copy assignement" << std::endl;
-	if (this != &other)
-		*this = other;
+	for (int i = 0; i < IDEAS_COUNTS; ++i)
+		_ideas[i] = other._ideas[i];
+	std::cout << "Brain copy constructor" << std::endl;
 }
 
 Brain::~Brain(void) {
-	std::cout << "Braim Destruction" << std::endl;
+	std::cout << "Brain destructor" << std::endl;
 }
 
 Brain&	Brain::operator=(const Brain& other) {
-	std::cout << "Brain operator=" << std::endl;
+	std::cout << "Brain assignment operator" << std::endl;
 	if (this == &other)
 		return (*this);
-	for (int i = 0; i < 100; i++)
-		setIdeas(i, other.getIdeas(i));
+	for (int i = 0; i < IDEAS_COUNTS; i++)
+		_ideas[i] = other._ideas[i];
 	return (*this);
 }
 

@@ -5,80 +5,66 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/12 18:59:48 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/13 19:34:30 by hfandres         ###   ########.fr       */
+/*   Created: 2026/06/12 21:15:00 by hfandres          #+#    #+#             */
+/*   Updated: 2026/06/14 00:00:00 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Character.hpp"
+#include "MateriaSource.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
-#include "Character.hpp"
 
 int main()
 {
-	{
-		std::cout << "----- TESTING USE -----" << std::endl;
-		ICharacter* me = new Character("me");
-		ICharacter* bob = new Character("bob");
-		std::cout <<  std::endl;
-		AMateria* am = new Ice();
-		std::cout << "AMateria/adress : " << *am << std::endl;
-		am->use(*me);
-		std::cout <<  std::endl;
-		AMateria* am2 = new Cure();
-		std::cout << "AMateria/adress : " << *am2 << std::endl;
-		am2->use(*me);
-		std::cout <<  std::endl;
-		me->equip(am);
-		me->equip(am2);
-		me->equip(am2);
-		me->equip(am2);
-		me->equip(am2);
-		// me->unequip(0);
-		*bob = *me;
-		std::cout << "\n----- VERIFICATION DE LA COPIE PROFONDE -----" << std::endl;
-		std::cout << "Adresse de la Materia 0 de me  : " << me->getMateria(0) << std::endl;
-		std::cout << "Adresse de la Materia 0 de bob : " << bob->getMateria(0) << std::endl;
+	std::cout << "--- TEST 1: Subject Case ---" << std::endl;
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 
-		if (me->getMateria(0) != bob->getMateria(0) && bob->getMateria(0) != NULL)
-		{
-		    std::cout << "🔥 SUCCÈS : Les adresses sont différentes ! C'est une vraie Deep Copy." << std::endl;
-		}
-		else
-		{
-		    std::cout << "❌ ERREUR : Les adresses sont identiques ou NULL !" << std::endl;
-		}
-		bob->use (0, *me);
-		bob->use (1, *me);
-		bob->use (2, *me);
-		bob->use (3, *me);
-		bob->use (4, *me);
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
 
-		std::cout << *me << std::endl;
-		std::cout << *bob << std::endl;
-		// *am = *am2; // ice = cure
-		delete am;
-		delete am2;
-		delete me;
-		delete bob;
-	}
-	std::cout << "..........................................." << std::endl;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+
+	delete bob;
+	delete me;
+	delete src;
+
+	std::cout << "\n--- TEST 2: Inventory Limits & Unset Slots ---" << std::endl;
+	Character* char2 = new Character("Warrior");
+	AMateria* ice = new Ice();
+	for (int i = 0; i < 5; i++)
 	{
-		std::cout << "----- TESTING CLONE -----" << std::endl;
-		ICharacter* me =  new Character("me");
-		std::cout <<  std::endl;
-		AMateria* am = new Ice();
-		std::cout <<  std::endl;
-		AMateria* am2 = am->clone();
-		am2->use(*me);
-		std::cout <<  std::endl;
-		std::cout << "AMateria/adress : " << *am << std::endl;
-		std::cout << "AMateria/adress : " << *am2 << std::endl;
-		std::cout <<  std::endl;
-		delete am;
-		delete am2;
-		delete me;
+		std::cout << "Equipping " << i << " ";
+		char2->equip(ice);
 	}
-	std::cout << "..........................................." << std::endl;
+	char2->use(4, *bob); // Should do nothing (out of bounds)
+	char2->unequip(0);
+	AMateria* cure = new Cure();
+	char2->equip(cure); // Should fill the first empty slot (0)
+	
+	std::cout << "\n--- TEST 3: Deep Copy Character ---" << std::endl;
+	Character* clone = new Character(*char2);
+	std::cout << "Clone name: " << clone->getName() << std::endl;
+	
+	std::cout << "\n--- TEST 4: MateriaSource unknown type ---" << std::endl;
+	MateriaSource* source = new MateriaSource();
+	AMateria* unknown = source->createMateria("fire");
+	if (unknown == NULL)
+		std::cout << "Correctly returned NULL for unknown type" << std::endl;
+
+	delete clone;
+	delete char2;
+	delete ice;
+	delete source;
+
 	return 0;
 }

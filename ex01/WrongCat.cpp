@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongCat.cpp                                       :+:      :+:    :+:   */
+/*   WrongCat.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -22,11 +22,11 @@ WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {
 }
 
 WrongCat::~WrongCat(void){
-	std::cout << "WrongCat Destruction" << std::endl;
+	std::cout << "WrongCat destructor" << std::endl;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& other) {
-	std::cout << "Surcharge 'operator='" << std::endl;
+	std::cout << "WrongCat assignment operator" << std::endl;
 	if (this == &other)
 		return (*this);
 	setType(other.getType());

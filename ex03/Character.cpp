@@ -6,57 +6,58 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/13 19:31:57 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/13 20:01:29 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/14 00:00:00 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include "AMateria.hpp"
-#include "Ice.hpp"
 
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
-
-Character::Character() : ICharacter()
+Character::Character() : name("default")
 {
-	for (int i = 0; i < INVENTORY_SLOTS; i++)
+	for (int i = 0; i < 4; i++)
 		inventory[i] = NULL;
-	std::cout << "Character default constructor" << std::endl;
 }
 
-Character::Character(std::string const &name)
+Character::Character(std::string const &name) : name(name)
 {
-	for (int i = 0; i < INVENTORY_SLOTS; i++)
+	for (int i = 0; i < 4; i++)
 		inventory[i] = NULL;
-	std::cout << "Character string constructor" << std::endl;
-	this->name = name;
 }
 
-Character::Character(const Character &src) : ICharacter(src)
+Character::Character(const Character &src) : name(src.getName())
 {
-	for (int i = 0; i < INVENTORY_SLOTS; i++)
-		this->inventory[i] = NULL;
+	for (int i = 0; i < 4; i++)
+		inventory[i] = NULL;
 	*this = src;
 }
 
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
-
 Character::~Character()
 {
-	std::cout << "Character destroctor" << std::endl;
-	for (int i = 0; i < INVENTORY_SLOTS; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		if (inventory[i] != NULL)
-			delete (inventory[i]);
+		if (inventory[i])
+			delete inventory[i];
 	}
 }
 
-/*
-** --------------------------------- OVERLOAD ---------------------------------
-*/
+Character & Character::operator=(Character const & rhs)
+{
+	if (this != &rhs)
+	{
+		this->name = rhs.getName();
+		for (int i = 0; i < 4; i++)
+		{
+			if (inventory[i])
+				delete inventory[i];
+			if (rhs.inventory[i])
+				inventory[i] = rhs.inventory[i]->clone();
+			else
+				inventory[i] = NULL;
+		}
+	}
+	return (*this);
+}
 
 std::ostream &operator<<(std::ostream &o, ICharacter const &i)
 {
@@ -64,97 +65,34 @@ std::ostream &operator<<(std::ostream &o, ICharacter const &i)
 	return o;
 }
 
-// Version pour la classe concrète (Character)
-
-Character & Character::operator=( Character const & rhs )
-{
-	Character::_copyInventory(rhs);
-	return (*this);
-}
-
-ICharacter & Character::operator=( ICharacter const & rhs )
-{
-	Character::_copyInventory(rhs);
-	return (*this);
-}
-
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
-
-void Character::_copyInventory(ICharacter const &rhs)
-{
-	// this->name = rhs.getName();
-
-	// 1. Nettoyage de l'ancien inventaire
-	for (int i = 0; i < INVENTORY_SLOTS; i++)
-	{
-		if (this->inventory[i] != NULL)
-		{
-			delete this->inventory[i];
-			this->inventory[i] = NULL;
-		}
-	}
-
-	// 2. Copie profonde via le getter virtuel de l'interface
-	for (int i = 0; i < INVENTORY_SLOTS; i++)
-	{
-		AMateria *m = rhs.getMateria(i);
-		if (m != NULL)
-		{
-			this->inventory[i] = m->clone();
-		}
-	}
-}
-
 void Character::equip(AMateria *m)
 {
-	for (int i = 0; i < INVENTORY_SLOTS; i++)
+	if (!m)
+		return;
+	for (int i = 0; i < 4; i++)
 	{
 		if (inventory[i] == NULL)
 		{
-			std::cout << "equip :" << *m << "in : " << i << std::endl;
 			inventory[i] = m->clone();
 			return;
 		}
 	}
-	std::cout << "Buy 4 more slots for 2000000000$" << std::endl;
 }
 
 void Character::unequip(int idx)
 {
-	if (idx < 0 || idx >= INVENTORY_SLOTS)
-	{
-		std::cout << "Index out of bounds!" << std::endl;
+	if (idx < 0 || idx >= 4)
 		return;
-	}
-	if (inventory[idx] == NULL)
-	{
-		std::cout << "Slot " << idx << " is already empty." << std::endl;
-		return;
-	}
-	std::cout << "unequip : " << idx << std::endl;
 	inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-	if (idx < 0 || idx >= INVENTORY_SLOTS)
-	{
-		std::cout << "Index out of bounds!" << std::endl;
+	if (idx < 0 || idx >= 4 || !inventory[idx])
 		return;
-	}
-	if (inventory[idx] == NULL)
-	{
-		std::cout << "No Materia equipped at slot " << idx << std::endl;
-		return;
-	}
 	inventory[idx]->use(target);
 }
 
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
 std::string const &Character::getName() const
 {
 	return (name);
@@ -162,7 +100,7 @@ std::string const &Character::getName() const
 
 AMateria *Character::getMateria(int idx) const
 {
-	if (idx >= 0 && idx < INVENTORY_SLOTS)
+	if (idx >= 0 && idx < 4)
 		return (this->inventory[idx]);
 	return (NULL);
 }

@@ -20,27 +20,22 @@ Dog::Dog(void) : Animal() {
 		_brain->setIdeas(i, "meat");
 }
 
-Dog::Dog(const Dog& other) : Animal(other) {
-	std::cout << "Dog copy" << std::endl;
-	*this = other;
+Dog::Dog(const Dog& other) : Animal(other), _brain(new Brain(*other._brain)) {
+	std::cout << "Dog copy constructor" << std::endl;
 }
 
 Dog::~Dog(void) {
-	std::cout << "Dog Destruction" << std::endl;
+	std::cout << "Dog destructor" << std::endl;
 		delete _brain;
 }
 
 Dog& Dog::operator=(const Dog& other) {
-	std::cout << "Surcharge 'operator='" << std::endl;
+	std::cout << "Dog assignment operator" << std::endl;
 	if (this == &other)
 		return (*this);
-	this->setType(other.getType());
-	this->_brain = new Brain(other.getBrain());
-	if (this->_brain == NULL)
-	{
-		std::cerr << "Error: Memory allocation failed for Brain" << std::endl;
-		return (*this);
-	}
+	Animal::operator=(other);
+	delete _brain;
+	this->_brain = new Brain(*other._brain);
 	return (*this);
 }
 

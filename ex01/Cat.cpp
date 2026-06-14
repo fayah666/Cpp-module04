@@ -17,31 +17,25 @@ Cat::Cat(void) : Animal() {
 	std::cout << "Cat default constructor" << std::endl;
 	_brain = new Brain();
 	for (size_t i = 0; i < IDEAS_COUNTS; i++)
-		_brain->setIdeas(i, "Dog");
+		_brain->setIdeas(i, "fish");
 }
 
-Cat::Cat(const Cat& other) : Animal(other) {
-	std::cout << "Cat copy" << std::endl;
-	*this = other;
+Cat::Cat(const Cat& other) : Animal(other), _brain(new Brain(*other._brain)) {
+	std::cout << "Cat copy constructor" << std::endl;
 }
 
 Cat::~Cat(void) {
-	std::cout << "Cat Destruction" << std::endl;
+	std::cout << "Cat destructor" << std::endl;
 		delete _brain;
 }
 
 Cat& Cat::operator=(const Cat& other) {
-	std::cout << "Surcharge 'operator='" << std::endl;
+	std::cout << "Cat assignment operator" << std::endl;
 	if (this == &other)
 		return (*this);
-	this->setType(other.getType());
-	this->_brain = new Brain();
-	if (this->_brain == NULL)
-	{
-		std::cerr << "Error: Memory allocation failed for Brain" << std::endl;
-		return (*this);
-	}
-	*this->_brain = other.getBrain();
+	Animal::operator=(other);
+	delete _brain;
+	this->_brain = new Brain(*other._brain);
 	return (*this);
 }
 

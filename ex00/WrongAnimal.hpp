@@ -16,7 +16,7 @@
 # include <string>
 
 class WrongAnimal {
-	private :
+	protected :
 		std::string _type;
 	public :
 		WrongAnimal(void);
@@ -26,7 +26,7 @@ class WrongAnimal {
 		WrongAnimal& operator=(const WrongAnimal& other);
 		const std::string	getType(void) const;
 		void				setType(const std::string& type);
-		void				makeWrongSound(void);
+		void				makeWrongSound(void) const;
 };
 
 #endif //WRONGANIMAL_HPP

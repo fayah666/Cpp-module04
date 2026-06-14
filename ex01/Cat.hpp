@@ -24,7 +24,6 @@ class Cat : public Animal {
 		~Cat(void);
 		Cat&	operator=(const Cat& other);
 		void makeSound(void) const;
-		void	setBrainIdeas(size_t n, const std::string ideas);
 		const	Brain& getBrain(void) const;
 };
 

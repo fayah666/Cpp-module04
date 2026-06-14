@@ -22,11 +22,11 @@ Cat::Cat(const Cat& other) : Animal(other) {
 }
 
 Cat::~Cat(void){
-	std::cout << "Cat Destruction" << std::endl;
+	std::cout << "Cat destructor" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other) {
-	std::cout << "Surcharge 'operator='" << std::endl;
+	std::cout << "Cat assignment operator" << std::endl;
 	if (this == &other)
 		return (*this);
 	setType(other.getType());

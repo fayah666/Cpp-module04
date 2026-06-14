@@ -12,22 +12,20 @@
 
 #include "Animal.hpp"
 
-Animal::Animal(void) : _type("Carnivorous") {
+Animal::Animal(void) : _type("Animal") {
 	std::cout << "Animal default constructor" << std::endl;
 }
 
-Animal::Animal(const Animal& other)
-{
-	std::cout << "Animal copy" << std::endl;
-	if (this != &other)
-		*this = other;
+Animal::Animal(const Animal& other) : _type(other._type) {
+	std::cout << "Animal copy constructor" << std::endl;
 }
+
 Animal::~Animal(void){
-	std::cout << "Animal Destruction" << std::endl;
+	std::cout << "Animal destructor" << std::endl;
 }
 
 Animal& Animal::operator=(const Animal& other) {
-	std::cout << "Surcharge 'operator='" << std::endl;
+	std::cout << "Animal assignment operator" << std::endl;
 	if (this == &other)
 		return (*this);
 	this->_type = other.getType();
@@ -44,9 +42,4 @@ void	Animal::setType(const std::string& type) {
 
 void	Animal::makeSound(void) const {
 	std::cout << "Grrrrrrrrrrrrrr........." << std::endl;
-}
-
-const	Brain& Animal::getBrain(void) const {
-	static Brain brain;
-	return (brain);
 }

@@ -15,11 +15,11 @@
 
 # include <iostream>
 # include <string>
-# include "Character.hpp"
+
+class ICharacter;
 
 class AMateria
 {
-
 	public:
 
 		AMateria();
