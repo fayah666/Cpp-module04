@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:25:53 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/30 13:27:48 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 10:58:33 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,29 +51,37 @@ static void catClassTest(void)
 }
 
 int main(void) {
-	std::cout << "___Canonical form test___" << std::endl;
-	std::cout << "---Animal Class---" << std::endl;
+	std::cout << "POLYMORPHISME\n" << std::endl;
+	std::cout << "---Animal Class---\n" << std::endl;
 	animalClassTest();
-	std::cout << "--Dog Class---" << std::endl;
+	std::cout << ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,," << std::endl;
+	std::cout << "--Dog Class---\n" << std::endl;
 	dogClassTest();
-	std::cout << "--Cat Class--" << std::endl;
+	std::cout << ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,," << std::endl;
+	std::cout << "--Cat Class--\n" << std::endl;
 	catClassTest();
+	std::cout << ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,," << std::endl;
 	{
-		std::cout << "___Polymorphisme test__" << std::endl;
+		std::cout << "___Polymorphisme test__\n" << std::endl;
 		const Animal* meta = new Animal();
 		const Animal* j = new Dog();
 		const Animal* i = new Cat();
-		std::cout << j->getType() << " " << std::endl;
-		std::cout << i->getType() << " " << std::endl;
+		std::cout << "i = " << i->getType() << std::endl;
+		std::cout << "j = " << j->getType() << std::endl;
+		std::cout << "meta = " << meta->getType() << std::endl;
+		std::cout << "i makeSound = ";
 		i->makeSound();
+		std::cout << "j makeSound = ";
 		j->makeSound();
+		std::cout << "meta makeSound = ";
 		meta->makeSound();
 		delete(meta);
 		delete(i);
 		delete(j);
 	}
+	std::cout << ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,," << std::endl;
 	{
-		std::cout << "___Wrong test__" << std::endl;
+		std::cout << "___Wrong test__\n" << std::endl;
 		WrongAnimal* meta = new WrongAnimal();
 		WrongAnimal* i = new WrongCat();
 		std::cout << i->getType() << std::endl;
@@ -81,6 +89,13 @@ int main(void) {
 		meta->makeWrongSound();
 		delete(meta);
 		delete(i);
+		{
+			std::cout << "___Wrong test 2__\n" << std::endl;
+			WrongCat* j = new WrongCat();
+			std::cout << j->getType() << std::endl;
+			j->makeWrongSound();
+			delete(j);
+		}
 	}
 	return (0);
 }

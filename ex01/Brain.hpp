@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 13:42:05 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/01 10:38:24 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 11:02:00 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <iostream>
 # include <string>
 # define IDEAS_COUNTS 100
+
 class Brain {
 	private :
 		std::string _ideas[IDEAS_COUNTS];

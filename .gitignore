@@ -1,2 +1,5 @@
 *.o
 animal
+.claude
+.qwen
+doc.md

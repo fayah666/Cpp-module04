@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:25:53 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/01 18:27:38 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 11:36:47 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,32 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "Brain.hpp"
-#define N 6
+#define N 20
+
 int main(void) {
 	{
 		std::cout << "-----------------------------" << std::endl;
 		std::cout << "|        Test constructors   |" << std::endl;
 		std::cout << "-----------------------------" << std::endl;
 		Animal* meta[N];
+		int dogCount = 0;
+		int catCount = 0;
 		for (int i = 0; i < N; ++i)
 		{
 			if (i % 2 == 0)
+			{
 				meta[i] = new Dog();
+				dogCount++;
+			}
 			else
+			{
 				meta[i] = new Cat();
+				catCount++;
+			}
 		}
+		std::cout << "Number of Dogs: " << dogCount << std::endl;
+		std::cout << "Number of Cats: " << catCount << std::endl;
+		std::cout << "-----------------------------" << std::endl;
 		for (size_t i = 0; i < N; i++)
 			delete meta[i];
 	}
@@ -48,6 +60,14 @@ int main(void) {
 		std::cout << "c's brain address: " << &c->getBrain() << std::endl;
 		std::cout << "d's brain address: " << &d->getBrain() << std::endl;
 		std::cout << "f's brain address: " << &f->getBrain() << std::endl;
+		std::cout << "-----------------------------" << std::endl;
+		std::cout << "assignation operator test" << std::endl;
+		*b = *a;
+		*d = *c;
+		std::cout << "a's brain address: " << &a->getBrain()
+			<< " | b's brain address: " << &b->getBrain() << std::endl;
+		std::cout << "c's brain address: " << &c->getBrain()
+			<< " | d's brain address: " << &d->getBrain() << std::endl;
 		delete a;
 		delete b;
 		delete c;
