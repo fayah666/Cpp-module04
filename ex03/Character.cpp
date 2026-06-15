@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/13 19:31:57 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/14 00:00:00 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 17:31:54 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,11 @@ void Character::equip(AMateria *m)
 	{
 		if (inventory[i] == NULL)
 		{
-			inventory[i] = m->clone();
-			return;
+			inventory[i] = m;
+			return ;
 		}
 	}
+	delete m;
 }
 
 void Character::unequip(int idx)
@@ -96,11 +97,4 @@ void Character::use(int idx, ICharacter &target)
 std::string const &Character::getName() const
 {
 	return (name);
-}
-
-AMateria *Character::getMateria(int idx) const
-{
-	if (idx >= 0 && idx < 4)
-		return (this->inventory[idx]);
-	return (NULL);
 }

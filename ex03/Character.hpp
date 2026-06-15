@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 21:08:56 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/15 08:09:40 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 16:57:58 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ public:
 	void equip(AMateria *m);
 	void unequip(int idx);
 	void use(int idx, ICharacter &target);
-	AMateria *getMateria(int idx) const;
-
 private:
 	AMateria *inventory[4];
 	std::string name;

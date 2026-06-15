@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 20:49:08 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/13 17:07:55 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 15:04:46 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include "Character.hpp"
 
 class ICharacter;
 

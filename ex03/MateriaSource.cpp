@@ -59,11 +59,10 @@ void MateriaSource::learnMateria(AMateria *m)
 	{
 		if (!_templates[i])
 		{
-			_templates[i] = m->clone();
+			_templates[i] = m;
 			return;
 		}
 	}
-	std::cout << "MateriaSource inventory full!" << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const &type)

@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 18:40:04 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/13 19:47:15 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 17:33:24 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,14 @@
 
 AMateria::AMateria()
 {
-	std::cout << "AMateria default constructor called" << std::endl;
 }
 
 AMateria::AMateria(std::string const & type) : type(type)
 {
-	std::cout << "AMateria constructor called" << std::endl;
 }
 
 AMateria::AMateria( const AMateria & src )
 {
-	std::cout << "AMateria copy constructor called" << std::endl;
 	if (this != &src)
 		*this = src;
 }
@@ -40,7 +37,6 @@ AMateria::AMateria( const AMateria & src )
 
 AMateria::~AMateria()
 {
-	std::cout << "AMateria destructor called" << std::endl;
 }
 
 
@@ -67,7 +63,7 @@ std::ostream &	operator<<( std::ostream & o, AMateria const & i )
 
 void AMateria::use(ICharacter& target)
 {
-	std::cout << "AMateria used on " << target << std::endl;
+	(void)target;
 }
 
 /*
