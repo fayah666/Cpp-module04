@@ -6,14 +6,14 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 12:21:56 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/01 17:35:51 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 13:58:24 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 Cat::Cat(void) : Animal() {
-	Animal::setType("Cat");
+	_type = "Cat";
 	std::cout << "Cat default constructor" << std::endl;
 	_brain = new Brain();
 	for (size_t i = 0; i < IDEAS_COUNTS; i++)
@@ -34,7 +34,7 @@ Cat& Cat::operator=(const Cat& other) {
 	std::cout << "Surcharge 'operator='" << std::endl;
 	if (this == &other)
 		return (*this);
-	this->setType(other.getType());
+	this->_type = other.getType();
 	this->_brain = new Brain();
 	if (this->_brain == NULL)
 	{

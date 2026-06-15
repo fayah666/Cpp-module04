@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 12:43:12 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/30 13:23:23 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 13:56:46 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class WrongAnimal {
 
 		WrongAnimal& operator=(const WrongAnimal& other);
 		const std::string	getType(void) const;
-		void				setType(const std::string& type);
 		void				makeWrongSound(void) const;
 };
 

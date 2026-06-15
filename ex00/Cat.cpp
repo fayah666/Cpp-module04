@@ -6,14 +6,14 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 12:21:56 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/30 12:28:27 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 13:59:46 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 Cat::Cat(void) : Animal() {
-	Animal::setType("Cat");
+	_type = "Cat";
 	std::cout << "Cat default constructor" << std::endl;
 }
 
@@ -29,7 +29,7 @@ Cat& Cat::operator=(const Cat& other) {
 	std::cout << "Cat assignment operator" << std::endl;
 	if (this == &other)
 		return (*this);
-	setType(other.getType());
+	_type = other.getType();
 	return (*this);
 }
 

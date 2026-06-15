@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 12:47:32 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/30 13:26:34 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 13:56:50 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,3 @@ const std::string	WrongAnimal::getType(void) const {
 	return (this->_type);
 }
 
-void	WrongAnimal::setType(const std::string& type) {
-	this->_type = type;
-}

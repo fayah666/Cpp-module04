@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:25:53 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/15 10:58:33 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 13:42:48 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int main(void) {
 	catClassTest();
 	std::cout << ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,," << std::endl;
 	{
-		std::cout << "___Polymorphisme test__\n" << std::endl;
+		std::cout << "___Polymorphisme test___\n" << std::endl;
 		const Animal* meta = new Animal();
 		const Animal* j = new Dog();
 		const Animal* i = new Cat();
@@ -81,7 +81,7 @@ int main(void) {
 	}
 	std::cout << ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,," << std::endl;
 	{
-		std::cout << "___Wrong test__\n" << std::endl;
+		std::cout << "___Wrong test___\n" << std::endl;
 		WrongAnimal* meta = new WrongAnimal();
 		WrongAnimal* i = new WrongCat();
 		std::cout << i->getType() << std::endl;
@@ -90,7 +90,7 @@ int main(void) {
 		delete(meta);
 		delete(i);
 		{
-			std::cout << "___Wrong test 2__\n" << std::endl;
+			std::cout << "___Wrong test 2___\n" << std::endl;
 			WrongCat* j = new WrongCat();
 			std::cout << j->getType() << std::endl;
 			j->makeWrongSound();

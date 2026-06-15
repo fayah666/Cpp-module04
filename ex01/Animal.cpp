@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:18:16 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/15 11:34:06 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 14:01:49 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,6 @@ Animal& Animal::operator=(const Animal& other) {
 
 const std::string	Animal::getType(void) const {
 	return (this->_type);
-}
-
-void	Animal::setType(const std::string& type) {
-	this->_type = type;
 }
 
 void	Animal::makeSound(void) const {

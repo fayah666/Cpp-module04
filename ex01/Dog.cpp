@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:37:35 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/01 18:19:08 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 13:56:02 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Dog::Dog(void) : Animal() {
 	std::cout << "Dog default constructor" << std::endl;
-	Animal::setType("Dog");
+	_type = "Dog";
 	_brain = new Brain();
 	for (size_t i = 0; i < IDEAS_COUNTS; i++)
 		_brain->setIdeas(i, "meat");

@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:37:35 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/01 18:19:08 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 13:58:57 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Dog::Dog(void) : Animal() {
 	std::cout << "Dog default constructor" << std::endl;
-	Animal::setType("Dog");
+	_type = "Dog";
 	_brain = new Brain();
 	for (size_t i = 0; i < IDEAS_COUNTS; i++)
 		_brain->setIdeas(i, "meat");
@@ -34,7 +34,7 @@ Dog& Dog::operator=(const Dog& other) {
 	std::cout << "Surcharge 'operator='" << std::endl;
 	if (this == &other)
 		return (*this);
-	this->setType(other.getType());
+	_type = other.getType();
 	this->_brain = new Brain(other.getBrain());
 	if (this->_brain == NULL)
 	{

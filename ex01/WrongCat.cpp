@@ -13,7 +13,7 @@
 #include "WrongCat.hpp"
 
 WrongCat::WrongCat(void) : WrongAnimal() {
-	WrongAnimal::setType("WrongCat");
+	_type = "WrongCat";
 	std::cout << "WrongCat default constructor" << std::endl;
 }
 
@@ -29,7 +29,7 @@ WrongCat& WrongCat::operator=(const WrongCat& other) {
 	std::cout << "WrongCat assignment operator" << std::endl;
 	if (this == &other)
 		return (*this);
-	setType(other.getType());
+	_type = other.getType();
 	return (*this);
 }
 

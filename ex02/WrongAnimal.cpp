@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 12:47:32 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/30 13:26:34 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/15 14:02:44 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) {
 	std::cout << "Surcharge 'operator='" << std::endl;
 	if (this == &other)
 		return (*this);
-	this->_type = other._type;
+	this->_type = other.getType();
 	return (*this);
 }
 
