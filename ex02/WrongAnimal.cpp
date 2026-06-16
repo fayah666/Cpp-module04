@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 12:47:32 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/15 14:02:44 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/16 10:05:18 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ WrongAnimal::WrongAnimal(void) : _type("mammal") {
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& other) {
-	std::cout << "Copy assignment" << std::endl;
+	std::cout << "Wrong Animal Copy Constructor" << std::endl;
 	if (this != &other)
 		*this = other;
 }
@@ -27,7 +27,7 @@ WrongAnimal::~WrongAnimal(void) {
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) {
-	std::cout << "Surcharge 'operator='" << std::endl;
+	std::cout << "Wrong Animal assignment operator" << std::endl;
 	if (this == &other)
 		return (*this);
 	this->_type = other.getType();

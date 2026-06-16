@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:37:35 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/15 13:58:57 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/16 10:03:50 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Dog::Dog(void) : Animal() {
 }
 
 Dog::Dog(const Dog& other) : Animal(other) {
-	std::cout << "Dog copy" << std::endl;
+	std::cout << "Dog copy constructor" << std::endl;
 	*this = other;
 }
 
@@ -31,7 +31,7 @@ Dog::~Dog(void) {
 }
 
 Dog& Dog::operator=(const Dog& other) {
-	std::cout << "Surcharge 'operator='" << std::endl;
+	std::cout << "Dog assignment operator" << std::endl;
 	if (this == &other)
 		return (*this);
 	_type = other.getType();

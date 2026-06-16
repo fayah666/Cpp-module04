@@ -18,7 +18,7 @@ WrongCat::WrongCat(void) : WrongAnimal() {
 }
 
 WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {
-	std::cout << "WrongCat copy" << std::endl;
+	std::cout << "WrongCat copy constructor" << std::endl;
 }
 
 WrongCat::~WrongCat(void){
@@ -26,7 +26,7 @@ WrongCat::~WrongCat(void){
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& other) {
-	std::cout << "Surcharge 'operator='" << std::endl;
+	std::cout << "Wrong Cat assignment operator" << std::endl;
 	if (this == &other)
 		return (*this);
 	setType(other.getType());
@@ -34,5 +34,5 @@ WrongCat& WrongCat::operator=(const WrongCat& other) {
 }
 
 void	WrongCat::makeWrongSound(void) const {
-	std::cout << "......................." << std::endl;
+	std::cout << "Miaoous" << std::endl;
 }

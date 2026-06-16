@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/13 19:31:57 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/15 17:31:54 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/16 12:07:15 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,23 @@ Character & Character::operator=(Character const & rhs)
 	return (*this);
 }
 
-std::ostream &operator<<(std::ostream &o, ICharacter const &i)
+std::ostream &operator<<(std::ostream &o, Character const &i)
 {
+	o << "{";
 	o << i.getName();
+	o << ": [";
+	for (int j = 0; j < 4; j++)
+	{
+		if (i.getMateria(j))
+		{
+			o << i.getMateria(j)->getType();
+		}
+		else
+			o << "NULL";
+		if (j != 3)
+			o << ", ";
+	}
+	o << "]}";
 	return o;
 }
 
@@ -97,4 +111,11 @@ void Character::use(int idx, ICharacter &target)
 std::string const &Character::getName() const
 {
 	return (name);
+}
+
+AMateria* Character::getMateria(int idx) const
+{
+	if (idx >= 0 && idx < 4)
+		return (inventory[idx]);
+	return (NULL);
 }

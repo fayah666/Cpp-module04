@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 18:44:19 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/14 00:00:00 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/16 10:34:47 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class MateriaSource : public IMateriaSource
 
 		void				learnMateria(AMateria* m);
 		AMateria*			createMateria(std::string const & type);
-
+		AMateria*			getMateria(int idx) const;
 	private:
 		AMateria*			_templates[4];
 };

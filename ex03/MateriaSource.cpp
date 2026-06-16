@@ -18,7 +18,7 @@ MateriaSource::MateriaSource()
 		_templates[i] = NULL;
 }
 
-MateriaSource::MateriaSource(const MateriaSource &src)
+MateriaSource::MateriaSource(const MateriaSource & src)
 {
 	for (int i = 0; i < 4; i++)
 		_templates[i] = NULL;
@@ -78,6 +78,21 @@ AMateria* MateriaSource::createMateria(std::string const &type)
 std::ostream &operator<<(std::ostream &o, MateriaSource const &i)
 {
 	(void)i;
-	o << "MateriaSource";
+	for (int j = 0; j < 4; j++)
+	{
+		o << "[";
+		if (i.getMateria(j))
+			o << i.getMateria(j)->getType();
+		else
+			o << "NULL";
+		o << "]";
+	}
 	return o;
+}
+
+AMateria*	MateriaSource::getMateria(int idx) const
+{
+	if (idx >= 0 && idx < 4)
+		return (_templates[idx]);
+	return (NULL);
 }

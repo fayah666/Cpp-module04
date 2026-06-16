@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 12:21:56 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/15 13:58:24 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/16 10:02:19 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Cat::Cat(void) : Animal() {
 }
 
 Cat::Cat(const Cat& other) : Animal(other) {
-	std::cout << "Cat copy" << std::endl;
+	std::cout << "Cat copy constructor" << std::endl;
 	*this = other;
 }
 
@@ -31,7 +31,7 @@ Cat::~Cat(void) {
 }
 
 Cat& Cat::operator=(const Cat& other) {
-	std::cout << "Surcharge 'operator='" << std::endl;
+	std::cout << "Cat assignment operator" << std::endl;
 	if (this == &other)
 		return (*this);
 	this->_type = other.getType();

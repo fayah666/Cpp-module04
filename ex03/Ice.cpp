@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 18:46:30 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/15 17:32:29 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/16 11:17:09 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ Ice::Ice() : AMateria("ice")
 {
 }
 
-Ice::Ice( const Ice & src ) : AMateria(src)
+Ice::Ice( const Ice & src ) : AMateria("ice")
 {
+	(void)src;
 }
 
 Ice::~Ice()

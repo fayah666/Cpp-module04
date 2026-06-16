@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:18:16 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/15 14:00:35 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/16 10:01:55 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Animal::Animal(void) : _type("Carnivorous") {
 
 Animal::Animal(const Animal& other)
 {
-	std::cout << "Animal copy" << std::endl;
+	std::cout << "Animal copy constructor" << std::endl;
 	if (this != &other)
 		*this = other;
 }
@@ -27,7 +27,7 @@ Animal::~Animal(void){
 }
 
 Animal& Animal::operator=(const Animal& other) {
-	std::cout << "Surcharge 'operator='" << std::endl;
+	std::cout << "Animal assignment operator" << std::endl;
 	if (this == &other)
 		return (*this);
 	this->_type = other.getType();

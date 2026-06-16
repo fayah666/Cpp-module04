@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 18:46:30 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/15 17:32:10 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/16 11:16:59 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ Cure::Cure() : AMateria("cure")
 {
 }
 
-Cure::Cure( const Cure & src ) : AMateria(src)
+Cure::Cure( const Cure & src ) : AMateria("cure")
 {
+	(void)src;
 }
 
 Cure::~Cure()

@@ -1,6 +1,6 @@
 CXX = c++
 
-CXXFLAG = -g -Wall -Wextra -Werror -std=c++98
+CXXFLAG = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -f
 
@@ -13,7 +13,7 @@ SRCS = main.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
-NAME = animal
+NAME = materia
 
 all : $(NAME)
 
